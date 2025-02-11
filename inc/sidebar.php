@@ -1,3 +1,5 @@
+<?php include './dbConnection/dbConnection.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,28 +26,32 @@
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
+                    <a href="./index.php" class="sidebar-link">
                         <i class="fas fa-chart-pie"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
+                    <a href="./register.php" class="sidebar-link">
                         <i class="fas fa-clipboard-list"></i>
                         <span>Register</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse" data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
+                <li class="sidebar-item has-dropdown">
+                    <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
                         <i class="fas fa-user-graduate"></i>
                         <span>Students</span>
                     </a>
                     <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">SHS Student</a>
+                            <a href="#" class="sidebar-link">
+                                <span>SHS Student</span> 
+                            </a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">College Student</a>
+                            <a href="#" class="sidebar-link">
+                                <span>College Student</span>
+                            </a>
                         </li>
                     </ul>
                 </li>
@@ -64,6 +70,8 @@
             </div>
         </aside>
 
+        <div class="main">
+            
 
     <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
         <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
