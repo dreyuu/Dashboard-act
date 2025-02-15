@@ -1,14 +1,14 @@
-document.addEventListener("DOMContentLoaded", function () {
-    'use strict';
 
-    const contact = document.getElementById('contact');
-    const age = document.getElementById('age');
-    const registerForm = document.getElementById('registerForm');
-    const statusSelect = document.getElementById('status');
-    const courseSelect = document.getElementById('course');
-    const courseLabel = document.querySelector('label[for="course"]');
-    const yearSelect = document.getElementById('year');
-    const yearLabel = document.querySelector('label[for="year"]');
+document.addEventListener("DOMContentLoaded", function () {
+
+    const studentForm = document.getElementById('editStudentForm');
+    const contact = document.getElementById('editContact');
+    const age = document.getElementById('editAge');
+    const statusSelect = document.getElementById('editStatus');
+    const courseSelect = document.getElementById('editCourse');
+    const courseLabel = document.querySelector('label[for="editCourse"]');
+    const yearSelect = document.getElementById('editYear');
+    const yearLabel = document.querySelector('label[for="editYear"]');
     const submitBtn = document.getElementById('submit');
 
     const collegeCourses = ["BSIT", "BSHM", "BSOA", "BSBA"];
@@ -26,6 +26,8 @@ document.addEventListener("DOMContentLoaded", function () {
             this.value = this.value.replace(/\D/g, "");
         });
     }
+
+
 
     // Function to update course and year selections based on status
     function updateSelections() {
@@ -75,24 +77,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+    if (studentForm) {
+        studentForm.addEventListener('submit', function(e) {
 
-
-    if (registerForm) {
-        registerForm.addEventListener("submit", function (e) {
-
-            if (!registerForm.checkValidity()) {
+            if (!studentForm.checkValidity()) {
                 e.preventDefault();
                 e.stopPropagation();
-                registerForm.classList.add('was-validated');
+                studentForm.classList.add('was-validated');
                 showAlert("warning-alert", "Oops! Some fields are missing. Please check and try again.");
                 return;
             }
 
-            e.preventDefault(); // Prevent full page reload
+            e.preventDefault();
 
             let formData = new FormData(this);
 
-            fetch("validate/student.register.php", {
+            fetch("validate/update_student.php", {
                 method: "POST",
                 body: formData
             })
@@ -100,14 +100,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 .then(data => {
                     try { // Attempt to parse JSON
                         if (data.success) {
-                            showAlert("success-alert", "Registration successful! The student has been added.");
-                            submitBtn.disabled = true;
+                            showAlert("success-alert", "The student has been updated.");
+                            submitBtn.disabled = true;// disable the button
                             setTimeout(() => {
-                                submitBtn.disabled = false;
+                                submitBtn.disabled = false; //enable the button
                                 location.reload();
                             }, 3000);
                         } else {
-                            showAlert("error-alert", "Oops! Something went wrong. Unable to register the student.");
+                            showAlert("error-alert", "Failed to update the student. Please try again.");
                         }
                     } catch (error) {
                         console.error("❌ JSON Parse Error:", error, "Response:", data);
@@ -118,16 +118,16 @@ document.addEventListener("DOMContentLoaded", function () {
                     console.error("❌ Fetch Error:", error);
                     showAlert("error-alert", "An error occurred. Please try again.");
                 });
+
         });
     }
-
     function showAlert(alertId, message) {
         let alertBox = document.getElementById(alertId);
         if (alertBox) {
             alertBox.innerText = message;
             alertBox.style.display = "block";
             alertBox.style.opacity = 1;
-
+            
             setTimeout(() => {
                 alertBox.style.display = "none";
                 alertBox.style.opacity = 0;
@@ -136,4 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
     }
+
+
+
 });

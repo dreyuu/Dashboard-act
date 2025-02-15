@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const sidebar = document.querySelector(".sidebar");
     const sidebarItems = document.querySelectorAll(".sidebar-item");
     const logoutBtn = document.getElementById('logout-btn');
-    const pageTitle = document.getElementById('page-title');
 
     // Toggle sidebar expand on button click
     hamburger.addEventListener("click", function () {

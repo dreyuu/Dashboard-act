@@ -1,29 +1,65 @@
 
 :root {
-    --clr-light: #fafbfe;
-    --clr-dark: #0e2238;
-    --clr-primary: #0e223e;
-    --clr-secondary: #c3fcf2;
-    --clr-accent: #3b7ddd;
-    --clr-font: #fff;
+    /* Theme Colors */
+    --clr-light: #fff5f5;
+    --clr-dark: #4c0000;
+    --clr-primary: #800000;
+    --clr-secondary: #ffdddd;
+    --clr-accent: #b30000;
+    --clr-font: #4c0000;
+    --clr-highlight: #800000;
 
-    --foreground: var(--clr-dark);
     --background: var(--clr-light);
+    --foreground: var(--clr-dark);
+    /* Doughnut Chart Colors (Light Mode) */
+    --chart-college-shs-1: #800000; /* Maroon */
+    --chart-college-shs-2: #b30000; /* Deep Red */
+    --chart-college-shs-3: #ffcccc; /* Muted Pink */
+    --chart-college-shs-4: #fff5f5; /* Soft White */
 
+    --chart-gender-1: #1b1f38; /* Muted Navy */
+    --chart-gender-2: #4c0000; /* Deep Maroon */
+    --chart-gender-3: #800000; /* Soft Maroon */
+    --chart-gender-4: #ffdddd; /* Light Pink */
 
+    --chart-custom-1: #660000; /* Deep Burgundy */
+    --chart-custom-2: #b30000; /* Warm Red */
+    --chart-custom-3: #ff8888; /* Soft Coral Red */
+    --chart-custom-4: #fff0f0; /* Very Light Beige */
 }
 
 .darkmode {
-    --clr-light: #fff;
-    --clr-dark: #00332a;
-    --clr-primary: #0e223e;
-    --clr-secondary: #00100d;
-    --clr-accent: #3b7ddd;
-    --clr-font: #fff;
+    /* Theme Colors */
+    --clr-light: #fff5f5;
+    --clr-dark: #292929;
+    --clr-primary: #660000;
+    --clr-secondary: #292929;
+    --clr-accent: #b30000;
+    --clr-font: #e0e0e0;
+    --clr-highlight: #fff5f5;
 
-    --foreground: var(--clr-light);
     --background: var(--clr-dark);
+    --foreground: var(--clr-light);
+
+    /* Doughnut Chart Colors (Dark Mode) */
+    --chart-college-shs-1: #e63946; /* Vibrant Red */
+    --chart-college-shs-2: #900c3f; /* Dark Crimson */
+    --chart-college-shs-3: #ff6f61; /* Soft Salmon */
+    --chart-college-shs-4: #ffc3a0; /* Light Peach */
+
+    --chart-gender-1: #ffba08; /* Warm Yellow */
+    --chart-gender-2: #6a0572; /* Dark Purple */
+    --chart-gender-3: #ff6361; /* Warm Red */
+    --chart-gender-4: #ffb1c1; /* Soft Pink */
+
+    --chart-custom-1: #ff9f1c; /* Golden Orange */
+    --chart-custom-2: #d62828; /* Bright Red */
+    --chart-custom-3: #f77f00; /* Sunset Orange */
+    --chart-custom-4: #fcbf49; /* Soft Yellow */
 }
+
+
+
 
 * {
     padding: 0;
@@ -188,6 +224,168 @@ a.sidebar-link:hover {
 .alert {
     position: fixed;
     top: 20px;
-    left: 45%;
     transition: all 300ms ease-in-out;
+    display: none;
+    z-index: 1100;
+    opacity: 0;
+}
+
+
+
+.custom-dropdown {
+    background-color: #800000 !important; /* Maroon */
+    border-radius: 0.5rem;
+    min-width: 200px;
+}
+
+/* Dropdown Items */
+.custom-dropdown .dropdown-item {
+    color: white !important;
+    padding: 10px 15px;
+    transition: background 0.2s ease-in-out;
+}
+
+/* Hover Effect */
+.custom-dropdown .dropdown-item:hover {
+    background-color: #660000 !important; /* Darker Maroon */
+}
+
+
+.squishy {
+    position: relative;
+    font-size: 1rem;
+    padding: 0.2rem 1rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 250ms;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.squishy-classic {
+    background-color: #800000; /* Maroon */
+    color: #ffffff; /* White text for contrast */
+    border-radius: 0.5rem;
+    box-shadow: 
+        inset 0 1px 0 0 #a52a2a,  /* Lighter maroon */
+        0 1px 0 0 #992727,
+        0 2px 0 0 #8f2525,
+        0 4px 0 0 #7a2020,
+        0 5px 0 0 #751f1f,
+        0 6px 0 0 #701d1d,
+        0 7px 0 0 #661a1a,
+        0 7px 8px 0 #5c1717;
+}
+
+.squishy-classic:hover {
+    transform: translateY(4px);
+    box-shadow: 
+        inset 0 1px 0 0 #a52a2a,  /* Lighter maroon */
+        0 1px 0 0 #992727,
+        0 1px 0 0 #8f2525,
+        0 2px 0 0 #7a2020,
+        0 2px 0 0 #751f1f,
+        0 3px 0 0 #701d1d,
+        0 4px 0 0 #661a1a,
+        0 4px 6px 0 #5c1717;
+}
+
+
+.squishy-tech {
+    background-color: rgb(128, 0, 0); /* Maroon */
+    color: white;
+    border-radius: 0.5rem;
+    box-shadow:
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.3),
+        0 2px 0 0 #a52a2a, /* Lighter maroon */
+        0 4px 0 0 #8b1d1d,
+        0 6px 0 0 #751818,
+        0 8px 0 0 #5c1313,
+        0 8px 16px 0 rgba(128, 0, 0, 0.5); /* Maroon glow */
+    overflow: hidden;
+    position: relative;
+}
+
+.squishy-tech::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: translateX(-100%);
+    animation: shimmer 2s infinite;
+}
+
+.squishy-tech:hover {
+    transform: translateY(4px);
+    box-shadow:
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.3),
+        0 1px 0 0 #a52a2a,
+        0 2px 0 0 #8b1d1d,
+        0 3px 0 0 #751818,
+        0 4px 0 0 #5c1313,
+        0 4px 8px 0 rgba(128, 0, 0, 0.5);
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+
+#submit {
+    background-color: var(--clr-primary);
+    color: var(--clr-light);
+    outline: none;
+    border: none;
+}
+
+.search {
+    display: inline-block;
+    position: relative;
+}
+
+.search::after {
+    content: "";
+    background: var(--clr-highlight);
+    width: 2px;
+    height: 10px;
+    position: absolute;
+    top: 33px;
+    right: 2px;
+    transform: rotate(135deg);
+}
+
+.search > input {
+    color: var(--clr-font);
+    font-size: 16px;
+    background: transparent;
+    width: 25px;
+    height: 25px;
+    padding: 17px;
+    border: solid 2px var(--clr-highlight);
+    outline: none;
+    border-radius: 35px;
+    transition: width 0.5s;
+}
+
+.search > input::placeholder {
+    color: var(--clr-font);
+    opacity: 0;
+    transition: opacity 150ms ease-out;
+    letter-spacing: 2px;
+}
+
+.search > input:focus::placeholder {
+    opacity: 1;
+}
+
+.search > input:focus,
+.search > input:not(:placeholder-shown) {
+    width: 250px;
 }

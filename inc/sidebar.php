@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Student Management</title>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./icons/css/all.min.css">
     <link rel="stylesheet" href="./css/style.css">
@@ -44,19 +44,19 @@
                     </a>
                     <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">
-                                <span>SHS Student</span> 
+                            <a href="./college.php" class="sidebar-link">
+                                <span>College Student</span> 
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">
-                                <span>College Student</span>
+                            <a href="./shs.php" class="sidebar-link">
+                                <span>SHS Student</span>
                             </a>
                         </li>
                     </ul>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
+                    <a href="./accounts.php" class="sidebar-link">
                         <i class="fas fa-users-cog"></i>
                         <span>Accounts</span>
                     </a>
@@ -101,4 +101,3 @@
             </li>
         </ul>
     </div>
-

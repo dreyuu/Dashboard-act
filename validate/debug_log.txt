@@ -1,0 +1,14 @@
+Array
+(
+    [fname] => khen
+    [lname] => sotito
+    [mi] => d
+    [age] => 19
+    [gender] => Male
+    [contact] => 09454651236
+    [address] => cavite city
+    [status] => SHS
+    [course] => HUMSS
+    [year] => 11
+    [section] => A
+)

@@ -1,6 +1,8 @@
+
 <?php
-if (isset($_POST['register_student'])) {
-    require '../dbConnection/dbConnection.php'; // Ensure this file properly initializes your PDO connection
+include '../dbConnection/dbConnection.php';
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+ // Ensure this file properly initializes your PDO connection
 
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
@@ -15,59 +17,31 @@ if (isset($_POST['register_student'])) {
     $address = $_POST['address'];
     $status = $_POST['status'];
     $course = $_POST['course'];
+    $year = $_POST['year'];
     $section = $_POST['section'];
 
-    try {
-        // Prepare the SQL statement
-        $sql = "INSERT INTO students (Name, age, gender, contact, address, status, course, section) 
-                VALUES (:fullname, :age, :gender, :contact, :address, :status, :course, :section)";
-        $stmt = $connect->prepare($sql);
 
-        // Bind parameters
-        $stmt->bindParam(':fullname', $fullname);
-        $stmt->bindParam(':age', $age);
-        $stmt->bindParam(':gender', $gender);
-        $stmt->bindParam(':contact', $contact);
-        $stmt->bindParam(':address', $address);
-        $stmt->bindParam(':status', $status);
-        $stmt->bindParam(':course', $course);
-        $stmt->bindParam(':section', $section);
+    // Prepare the SQL statement
+    $sql = "INSERT INTO students (Name, age, gender, contact, address, status, course, year, section) 
+                VALUES (:fullname, :age, :gender, :contact, :address, :status, :course, :year, :section)";
+    $stmt = $connect->prepare($sql);
 
-        // Execute the query
-        if ($stmt->execute()) {
-            ?>
-            <script>
+    // Bind parameters
+    $stmt->bindParam(':fullname', $fullname);
+    $stmt->bindParam(':age', $age);
+    $stmt->bindParam(':gender', $gender);
+    $stmt->bindParam(':contact', $contact);
+    $stmt->bindParam(':address', $address);
+    $stmt->bindParam(':status', $status);
+    $stmt->bindParam(':course', $course);
+    $stmt->bindParam(':year', $year);
+    $stmt->bindParam(':section', $section);
 
-                    function showAlert(alertId, message) {
-                        let alertBox = document.getElementById(alertId);
-                        if (alertBox) {
-                            alertBox.innerText = message;
-                            alertBox.style.display = "block";
-
-                            setTimeout(() => {
-                                alertBox.style.display = "none";
-                            }, 3000);
-                        }
-                    }
-
-                showAlert("success-alert", "Student Registered Successfully!");
-            
-            </script>';
-
-                <?php
-            // Delay redirection so the alert is visible
-            
-        } else {
-            echo '<div class="alert alert-danger" role="alert">
-                    Registration failed.
-                    </div>';
-        }
-    } catch (PDOException $e) {
-        echo '<div class="alert alert-danger" role="alert">
-                Error: ' . $e->getMessage() . '
-                </div>';
+    // Execute the query
+    if ($stmt->execute()) {
+        echo json_encode(["success" => true]);
+    } else {
+        echo json_encode(["success" => false, "error" => "Student register failed."]);
     }
-    header("Location: ../register.php");
-    exit();
 }
 ?>
