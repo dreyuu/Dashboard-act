@@ -6,8 +6,12 @@ $statement->execute();
 $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
-<div class="border-bottom h-auto w-100 p-3 d-flex border-bottom-100 border-2 mb-5">
-    <span id="page-title" class="fs-5 fw-medium ms-3">COLLEGE</span>
+<div class="border-bottom h-auto w-100 p-3 d-flex border-bottom-100 border-2 mb-5 justify-content-between">
+    <div>
+        <button id="toggle-btn" class="p-0" type="button"><i class="fa-duotone fa-solid fa-bars mt-1" style="color: var(--foreground); display:none;"></i></button>
+        <span id="page-title" class="fs-5 fw-medium ms-3">SENIOR HIGH SCHOOL</span>
+    </div>
+    <img src="img/logo.png" alt="logo.png" class="page-logo">
 </div>
 <div class="container-fluid w-100 p-3 d-flex justify-content-between">
     <div class="d-flex" style="align-items: center;">
@@ -180,10 +184,10 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                         <label for="editCourse" class="form-label">Course</label>
                         <select class="form-select" name="editCourse" id="editCourse" required>
                             <option selected disabled value="">Choose a course</option>
-                            <option>BSIT</option>
-                            <option>BSHM</option>
-                            <option>BSOA</option>
-                            <option>BSBA</option>
+                            <option>ICT</option>
+                            <option>HUMMS</option>
+                            <option>ABM</option>
+                            <option>GAS</option>
                         </select>
                         <div class="invalid-feedback">
                             Please choose a course.
@@ -193,10 +197,8 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                         <label for="editYear" class="form-label">Year</label>
                         <select class="form-select" name="editYear" id="editYear" required>
                             <option selected disabled value="">Choose a year</option>
-                            <option>1st</option>
-                            <option>2nd</option>
-                            <option>3rd</option>
-                            <option>4th</option>
+                            <option>11</option>
+                            <option>12</option>
                         </select>
                         <div class="invalid-feedback">
                             Please choose a year.
@@ -228,6 +230,17 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     <div id="error-alert" class="alert alert-danger p-3 d-flex justify-content-center align-content-center" role="alert"></div>
     <div id="warning-alert" class="alert alert-warning p-3 d-flex justify-content-center align-content-center" role="alert"></div>
 </div>
+
+<div class="loading-screen" id="loadingScreen">
+    <div class="loader">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+    <p style="color: var(--clr-light); margin-top: 10px;">Loading...</p>
+</div>
+
+
 <?php include 'inc/footer.php' ?>
 
 <script src="js/search.js"></script>

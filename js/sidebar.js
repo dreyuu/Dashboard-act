@@ -26,7 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Add active class to the clicked item
         this.classList.add("active");
-
         // Update the page title with only the clicked link's text
 
         console.log("Clicked on:", this.innerText.trim());
@@ -39,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if(logoutBtn){
         logoutBtn.addEventListener('click', function(){
             localStorage.removeItem("activeSidebarItem");
-            console.log("Active sidebar item removed on logout");
+            console.log('click');
         });
     }
 });

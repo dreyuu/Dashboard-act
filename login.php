@@ -16,27 +16,31 @@
 <body>
     <div class="main d-flex justify-content-center align-content-center">
 
-        <div class="container d-flex w-100 p-3 justify-content-center align-content-center">
-            <div class="container-fluid w-50 pt-5 m-auto">
-                <div class="w-100  text-center mb-5">
-                    <h1 class="fs-1 text-uppercase">LOGIN</h1>
+        <div class="container d-flex w-100 justify-content-center align-content-center p-0">
+            <div class="login-form m-auto d-flex flex-column ">
+                <div class=" w-100 d-flex flex-column text-center mb-3 mt-5">
+                    <img src="img/logo.png" alt="logo" class="login-logo m-auto">
+                    <h1 class="fs-4 text-uppercase m-0">Datamex College Saint Adeline</h1>
                 </div>
-                <form id="loginForm" class="row g-3 needs-validation" method="post" novalidate>
-                    <div class="col-12">
+                <div class="w-100  text-center mb-5">
+                    <h1 class="fs-2 text-uppercase">LOGIN</h1>
+                </div>
+                <form id="loginForm" class="row g-3 needs-validation w-100" method="post" novalidate>
+                    <div class="col-10 m-auto">
                         <label for="username" class="form-label">Username</label>
                         <input type="text" name="username" class="form-control" id="username" required>
                         <div class="invalid-feedback">
                             Username must not be empty.
                         </div>
                     </div>
-                    <div class="col-12 mb-5">
-                        <label for="password" class="form-label">Username</label>
+                    <div class="col-10 mb-5 m-auto">
+                        <label for="password" class="form-label">Password</label>
                         <input type="password" name="password" class="form-control" id="password" required>
                         <div class="invalid-feedback">
                             Password must not be empty.
                         </div>
                     </div>
-                    <div class="col-12 w-100 d-flex">
+                    <div class="col-10 w-75 d-flex m-auto">
                         <button class="btn btn-primary m-auto w-100 p-2" type="submit" id="submit" name="login">Login</button>
                     </div>
                 </form>
@@ -44,9 +48,9 @@
 
         </div>
 
-        <div id="success-alert" class="alert alert-success p-3 d-flex justify-content-center align-content-center"  role="alert"></div>
-        <div id="error-alert" class="alert alert-danger p-3 d-flex justify-content-center align-content-center "  role="alert"></div>
-        <div id="warning-alert" class="alert alert-warning p-3 d-flex justify-content-center align-content-center " role="alert" ></div>
+        <div id="success-alert" class="alert alert-success p-3 d-flex justify-content-center align-content-center" role="alert"></div>
+        <div id="error-alert" class="alert alert-danger p-3 d-flex justify-content-center align-content-center " role="alert"></div>
+        <div id="warning-alert" class="alert alert-warning p-3 d-flex justify-content-center align-content-center " role="alert"></div>
 
 
         <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
@@ -78,6 +82,16 @@
             </ul>
         </div>
     </div>
+
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        <p style="color: var(--clr-light); margin-top: 10px;">Logging in...</p>
+    </div>
+
     <script src="js/validateLogin.js"></script>
 </body>
 

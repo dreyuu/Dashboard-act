@@ -4,17 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const studentForm = document.getElementById('editStudentForm');
     const contact = document.getElementById('editContact');
     const age = document.getElementById('editAge');
-    const statusSelect = document.getElementById('editStatus');
-    const courseSelect = document.getElementById('editCourse');
-    const courseLabel = document.querySelector('label[for="editCourse"]');
-    const yearSelect = document.getElementById('editYear');
-    const yearLabel = document.querySelector('label[for="editYear"]');
     const submitBtn = document.getElementById('submit');
 
-    const collegeCourses = ["BSIT", "BSHM", "BSOA", "BSBA"];
-    const shsCourses = ["ICT", "HUMSS", "ABM", "GAS"];
-    const collegeYears = ["1st", "2nd", "3rd", "4th"];
-    const shsYears = ["11", "12"];
 
     if (contact) {
         contact.addEventListener('input', function () {
@@ -28,51 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-
-    // Function to update course and year selections based on status
-    function updateSelections() {
-        let selectedStatus = statusSelect.value;
-
-        // Update Courses
-        courseSelect.innerHTML = ""; // Clear existing options
-        if (selectedStatus === "College") {
-            courseLabel.innerText = "College Courses";
-            collegeCourses.forEach(course => {
-                let option = new Option(course, course);
-                courseSelect.add(option);
-            });
-        } else if (selectedStatus === "SHS") {
-            courseLabel.innerText = "SHS Courses";
-            shsCourses.forEach(course => {
-                let option = new Option(course, course);
-                courseSelect.add(option);
-            });
-        }
-
-        // Update Year Selection
-        yearSelect.innerHTML = ""; // Clear existing options
-        if (selectedStatus === "College") {
-            yearLabel.innerText = "Year Level";
-            collegeYears.forEach(year => {
-                let option = new Option(year, year);
-                yearSelect.add(option);
-            });
-        } else if (selectedStatus === "SHS") {
-            yearLabel.innerText = "Grade Level";
-            shsYears.forEach(year => {
-                let option = new Option(year, year);
-                yearSelect.add(option);
-            });
-        }
-    }
-
-    // Attach event listener to status dropdown
-    if (statusSelect) {
-        statusSelect.addEventListener('change', updateSelections);
-    }
-
-    // Run once on page load to set default selections
-    updateSelections();
 
 
 
@@ -101,6 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     try { // Attempt to parse JSON
                         if (data.success) {
                             showAlert("success-alert", "The student has been updated.");
+                            showLoadingScreen();
                             submitBtn.disabled = true;// disable the button
                             setTimeout(() => {
                                 submitBtn.disabled = false; //enable the button
@@ -108,6 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             }, 3000);
                         } else {
                             showAlert("error-alert", "Failed to update the student. Please try again.");
+                            
                         }
                     } catch (error) {
                         console.error("❌ JSON Parse Error:", error, "Response:", data);
@@ -137,6 +85,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-
+    function showLoadingScreen() {
+        let loadingScreen = document.getElementById('loadingScreen');
+        loadingScreen.style.display = 'flex';
+        setTimeout(() => {
+            loadingScreen.style.display = 'none';
+            
+        }, 3000);
+    }
 
 });

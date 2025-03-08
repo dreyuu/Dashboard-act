@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".delete-btn").forEach(button => {
         button.addEventListener("click", function () {
             let studentId = this.getAttribute("data-id");
-
+            
             if (confirm("Are you sure you want to delete this student?")) {
                 fetch("validate/delete-student.php", {
                     method: "POST",
@@ -12,8 +12,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
-                        alert("Student deleted successfully!");
-                        location.reload(); // Reload the page
+                        showAlert("success-alert", "Student deleted successfully!");
+                            showLoadingScreen();
+                            setTimeout(() => {
+                                location.reload();
+                            }, 3000);
                     } else {
                         alert("Failed to delete student.");
                     }
@@ -23,3 +26,12 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+function showLoadingScreen() {
+    let loadingScreen = document.getElementById('loadingScreen');
+    loadingScreen.style.display = 'flex';
+    setTimeout(() => {
+        loadingScreen.style.display = 'none';
+        console.log('show loading screen');
+    }, 3000);
+}

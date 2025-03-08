@@ -29,6 +29,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 try {
                     if(data.success) {
                         showAlert("success-alert", "Login Successful");
+                        showLoadingScreen();
+                        setTimeout(() => {
+                            window.location.href = './index.php';
+                        }, 3000);
                         // show loading screen and then redirect to dashboard
                         console.log("login successful");
                     } else {
@@ -62,3 +66,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 })
+
+function showLoadingScreen() {
+    let loadingScreen = document.getElementById('loadingScreen');
+    loadingScreen.style.display = 'flex';
+    setTimeout(() => {
+        loadingScreen.style.display = 'none';
+        
+    }, 3000);
+}
+

@@ -1,4 +1,7 @@
-<?php include '../dbConnection/dbConnection.php' ;
+<?php
+session_start();
+
+include '../dbConnection/dbConnection.php' ;
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -12,6 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bindParam(':password', $password);
 
     if($stmt->execute()) {
+        $_SESSION['username'] = $username;
         echo json_encode(["success" => true]);
     } else {
         echo json_encode(["success" => false, "error" => "Login failed."]);

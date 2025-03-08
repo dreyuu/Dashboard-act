@@ -84,6 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 e.preventDefault();
                 e.stopPropagation();
                 registerForm.classList.add('was-validated');
+                showLoadingScreen();
                 showAlert("warning-alert", "Oops! Some fields are missing. Please check and try again.");
                 return;
             }
@@ -101,6 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     try { // Attempt to parse JSON
                         if (data.success) {
                             showAlert("success-alert", "Registration successful! The student has been added.");
+                            showLoadingScreen();
                             submitBtn.disabled = true;
                             setTimeout(() => {
                                 submitBtn.disabled = false;
@@ -137,3 +139,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 });
+
+function showLoadingScreen() {
+    let loadingScreen = document.getElementById('loadingScreen');
+    loadingScreen.style.display = 'flex';
+    setTimeout(() => {
+        loadingScreen.style.display = 'none';
+        console.log('show loading screen');
+    }, 3000);
+}

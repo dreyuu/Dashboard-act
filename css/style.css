@@ -1,4 +1,3 @@
-
 :root {
     /* Theme Colors */
     --clr-light: #fff5f5;
@@ -12,20 +11,32 @@
     --background: var(--clr-light);
     --foreground: var(--clr-dark);
     /* Doughnut Chart Colors (Light Mode) */
-    --chart-college-shs-1: #800000; /* Maroon */
-    --chart-college-shs-2: #b30000; /* Deep Red */
-    --chart-college-shs-3: #ffcccc; /* Muted Pink */
-    --chart-college-shs-4: #fff5f5; /* Soft White */
+    --chart-college-shs-1: #800000;
+    /* Maroon */
+    --chart-college-shs-2: #b30000;
+    /* Deep Red */
+    --chart-college-shs-3: #ffcccc;
+    /* Muted Pink */
+    --chart-college-shs-4: #fff5f5;
+    /* Soft White */
 
-    --chart-gender-1: #1b1f38; /* Muted Navy */
-    --chart-gender-2: #4c0000; /* Deep Maroon */
-    --chart-gender-3: #800000; /* Soft Maroon */
-    --chart-gender-4: #ffdddd; /* Light Pink */
+    --chart-gender-1: #1b1f38;
+    /* Muted Navy */
+    --chart-gender-2: #4c0000;
+    /* Deep Maroon */
+    --chart-gender-3: #800000;
+    /* Soft Maroon */
+    --chart-gender-4: #ffdddd;
+    /* Light Pink */
 
-    --chart-custom-1: #660000; /* Deep Burgundy */
-    --chart-custom-2: #b30000; /* Warm Red */
-    --chart-custom-3: #ff8888; /* Soft Coral Red */
-    --chart-custom-4: #fff0f0; /* Very Light Beige */
+    --chart-custom-1: #660000;
+    /* Deep Burgundy */
+    --chart-custom-2: #b30000;
+    /* Warm Red */
+    --chart-custom-3: #ff8888;
+    /* Soft Coral Red */
+    --chart-custom-4: #fff0f0;
+    /* Very Light Beige */
 }
 
 .darkmode {
@@ -42,20 +53,32 @@
     --foreground: var(--clr-light);
 
     /* Doughnut Chart Colors (Dark Mode) */
-    --chart-college-shs-1: #e63946; /* Vibrant Red */
-    --chart-college-shs-2: #900c3f; /* Dark Crimson */
-    --chart-college-shs-3: #ff6f61; /* Soft Salmon */
-    --chart-college-shs-4: #ffc3a0; /* Light Peach */
+    --chart-college-shs-1: #e63946;
+    /* Vibrant Red */
+    --chart-college-shs-2: #900c3f;
+    /* Dark Crimson */
+    --chart-college-shs-3: #ff6f61;
+    /* Soft Salmon */
+    --chart-college-shs-4: #ffc3a0;
+    /* Light Peach */
 
-    --chart-gender-1: #ffba08; /* Warm Yellow */
-    --chart-gender-2: #6a0572; /* Dark Purple */
-    --chart-gender-3: #ff6361; /* Warm Red */
-    --chart-gender-4: #ffb1c1; /* Soft Pink */
+    --chart-gender-1: #ffba08;
+    /* Warm Yellow */
+    --chart-gender-2: #6a0572;
+    /* Dark Purple */
+    --chart-gender-3: #ff6361;
+    /* Warm Red */
+    --chart-gender-4: #ffb1c1;
+    /* Soft Pink */
 
-    --chart-custom-1: #ff9f1c; /* Golden Orange */
-    --chart-custom-2: #d62828; /* Bright Red */
-    --chart-custom-3: #f77f00; /* Sunset Orange */
-    --chart-custom-4: #fcbf49; /* Soft Yellow */
+    --chart-custom-1: #ff9f1c;
+    /* Golden Orange */
+    --chart-custom-2: #d62828;
+    /* Bright Red */
+    --chart-custom-3: #f77f00;
+    /* Sunset Orange */
+    --chart-custom-4: #fcbf49;
+    /* Soft Yellow */
 }
 
 
@@ -78,18 +101,38 @@
 a {
     text-decoration: none;
 }
+
 li {
     list-style: none;
 }
+
 h1 {
     font-weight: 600;
     font-size: 1.5rem;
 }
+
 body {
     font-family: sans-serif;
     background-color: var(--background);
     color: var(--foreground);
     transition: background-color 0.3s, color 0.3s;
+}
+
+.login-form {
+    height: 700px;
+    border-radius: 20px;
+    background: var(--background);
+    box-shadow: 0 4px 10px var(--foreground);
+}
+
+.login-logo {
+    width: 10rem;
+    margin-top: 20px;
+}
+
+.page-logo {
+    width: 2rem;
+    margin-right: 50px;
 }
 
 .wrapper {
@@ -113,6 +156,7 @@ body {
     flex-direction: column;
     background-color: var(--clr-primary);
 }
+
 .sidebar.expand {
     width: 260px;
     min-width: 260px;
@@ -131,18 +175,21 @@ body {
     color: var(--clr-light);
     background-color: transparent;
 }
+
 .sidebar-logo {
     margin: auto 0;
 }
+
 .sidebar-logo a {
     color: var(--clr-light);
     font-size: 1.15rem;
     font-weight: 600;
 }
+
 .sidebar:not(.expand) .sidebar-logo,
 .sidebar:not(.expand) a.sidebar-link span {
     display: none;
-} 
+}
 
 .sidebar-nav {
     padding: 2rem 0;
@@ -166,7 +213,7 @@ a.sidebar-link {
 
 a.sidebar-link:hover {
     background-color: rgba((255), 255, 255, .075);
-    border-left: 3px solid var(--clr-accent);
+    border-left: 3px solid var(--clr-light);
     color: #fff;
 }
 
@@ -174,9 +221,11 @@ a.sidebar-link:hover {
     position: relative;
     padding-block: 8px;
 }
+
 .sidebar-item.active {
     background: var(--clr-secondary);
 }
+
 .sidebar-item.active .sidebar-link {
     color: var(--foreground);
     border-left: 3px solid var(--foreground);
@@ -192,12 +241,12 @@ a.sidebar-link:hover {
     display: none;
 }
 
-.sidebar:not(.expand) .sidebar-item:hover .has-dropdown+.sidebar-dropdown{
+.sidebar:not(.expand) .sidebar-item:hover .has-dropdown+.sidebar-dropdown {
     display: block;
     max-height: 15rem;
     width: 100%;
     opacity: 1;
-} 
+}
 
 .sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
     border: solid;
@@ -233,7 +282,8 @@ a.sidebar-link:hover {
 
 
 .custom-dropdown {
-    background-color: #800000 !important; /* Maroon */
+    background-color: #800000 !important;
+    /* Maroon */
     border-radius: 0.5rem;
     min-width: 200px;
 }
@@ -247,7 +297,43 @@ a.sidebar-link:hover {
 
 /* Hover Effect */
 .custom-dropdown .dropdown-item:hover {
-    background-color: #660000 !important; /* Darker Maroon */
+    background-color: #660000 !important;
+    /* Darker Maroon */
+}
+
+
+.chart-card {
+    width: 100%;
+    max-width: 350px;
+    background: var(--clr-light);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px var(--foreground);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--clr-primary);
+    background: var(--clr-light);
+}
+
+.doughnut-container {
+    width: 100%;
+    height: 100px;
+    position: relative;
+}
+
+
+
+.chart-container {
+    width: 100%;
+    max-width: 1000px;
+    height: 250px;
+    padding: 20px;
+    background: var(--clr-light);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--foreground);
+
 }
 
 
@@ -265,11 +351,14 @@ a.sidebar-link:hover {
 }
 
 .squishy-classic {
-    background-color: #800000; /* Maroon */
-    color: #ffffff; /* White text for contrast */
+    background-color: #800000;
+    /* Maroon */
+    color: #ffffff;
+    /* White text for contrast */
     border-radius: 0.5rem;
-    box-shadow: 
-        inset 0 1px 0 0 #a52a2a,  /* Lighter maroon */
+    box-shadow:
+        inset 0 1px 0 0 #a52a2a,
+        /* Lighter maroon */
         0 1px 0 0 #992727,
         0 2px 0 0 #8f2525,
         0 4px 0 0 #7a2020,
@@ -281,8 +370,9 @@ a.sidebar-link:hover {
 
 .squishy-classic:hover {
     transform: translateY(4px);
-    box-shadow: 
-        inset 0 1px 0 0 #a52a2a,  /* Lighter maroon */
+    box-shadow:
+        inset 0 1px 0 0 #a52a2a,
+        /* Lighter maroon */
         0 1px 0 0 #992727,
         0 1px 0 0 #8f2525,
         0 2px 0 0 #7a2020,
@@ -294,16 +384,19 @@ a.sidebar-link:hover {
 
 
 .squishy-tech {
-    background-color: rgb(128, 0, 0); /* Maroon */
+    background-color: rgb(128, 0, 0);
+    /* Maroon */
     color: white;
     border-radius: 0.5rem;
     box-shadow:
         inset 0 1px 0 0 rgba(255, 255, 255, 0.3),
-        0 2px 0 0 #a52a2a, /* Lighter maroon */
+        0 2px 0 0 #a52a2a,
+        /* Lighter maroon */
         0 4px 0 0 #8b1d1d,
         0 6px 0 0 #751818,
         0 8px 0 0 #5c1313,
-        0 8px 16px 0 rgba(128, 0, 0, 0.5); /* Maroon glow */
+        0 8px 16px 0 rgba(128, 0, 0, 0.5);
+    /* Maroon glow */
     overflow: hidden;
     position: relative;
 }
@@ -332,6 +425,7 @@ a.sidebar-link:hover {
     0% {
         transform: translateX(-100%);
     }
+
     100% {
         transform: translateX(100%);
     }
@@ -361,7 +455,7 @@ a.sidebar-link:hover {
     transform: rotate(135deg);
 }
 
-.search > input {
+.search>input {
     color: var(--clr-font);
     font-size: 16px;
     background: transparent;
@@ -374,18 +468,76 @@ a.sidebar-link:hover {
     transition: width 0.5s;
 }
 
-.search > input::placeholder {
+.search>input::placeholder {
     color: var(--clr-font);
     opacity: 0;
     transition: opacity 150ms ease-out;
     letter-spacing: 2px;
 }
 
-.search > input:focus::placeholder {
+.search>input:focus::placeholder {
     opacity: 1;
 }
 
-.search > input:focus,
-.search > input:not(:placeholder-shown) {
+.search>input:focus,
+.search>input:not(:placeholder-shown) {
     width: 250px;
+}
+
+/* loading screen */
+
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: none;
+    z-index:1090;
+}
+
+.loader {
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 16px;
+    height: 16px;
+    background-color: var(--clr-light);
+    border-radius: 50%;
+    animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.dot:nth-child(1) {
+    animation-delay: -0.32s;
+}
+
+.dot:nth-child(2) {
+    animation-delay: -0.16s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0;
+}
+
+@keyframes bounce {
+
+    0%,
+    80%,
+    100% {
+        transform: scale(0);
+        opacity: 0.3;
+    }
+
+    40% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
